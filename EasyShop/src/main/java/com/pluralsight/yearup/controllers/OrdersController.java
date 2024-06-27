@@ -55,7 +55,7 @@ public class OrdersController {
         return user.getId();
     }
 
-    private Profile getProfileByUserId(int userId) {
+    private com.pluralsight.yearup.models.Profile getProfileByUserId(int userId) {
         return profileDao.getProfileById(userId);
     }
 

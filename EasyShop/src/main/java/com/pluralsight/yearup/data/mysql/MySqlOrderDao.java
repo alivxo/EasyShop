@@ -6,7 +6,6 @@ import com.pluralsight.yearup.models.ShoppingCart;
 import com.pluralsight.yearup.models.ShoppingCartItem;
 import org.springframework.stereotype.Component;
 
-
 import javax.sql.DataSource;
 import java.sql.*;
 import java.time.LocalDate;
@@ -79,5 +78,12 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
             orderItemLinePs.executeBatch();
         }
     }
+
+    @Override
+    public void create(int userId, org.springframework.context.annotation.Profile profile, ShoppingCart shoppingCart) {
+
+    }
 }
+
+
 

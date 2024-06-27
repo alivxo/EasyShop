@@ -29,7 +29,7 @@ public class UserProfileController {
     }
 
     @GetMapping("")
-    public Profile getProfile(Principal principal) {
+    public com.pluralsight.yearup.models.Profile getProfile(Principal principal) {
         try {
             // Get the currently logged-in username
             String userName = principal.getName();
