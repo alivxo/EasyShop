@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class Category implements List<Product> {
+public class Category implements List<Product>, jdk.jfr.Category {
     private int categoryId;
     private String name;
     private String description;
