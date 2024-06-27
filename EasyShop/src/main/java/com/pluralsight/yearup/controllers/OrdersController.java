@@ -3,7 +3,7 @@ package com.pluralsight.yearup.controllers;
 import com.pluralsight.yearup.data.ProfileDao;
 import com.pluralsight.yearup.data.ShoppingCartDao;
 import com.pluralsight.yearup.data.UserDao;
-import com.pluralsight.yearup.data.mysql.OrderDao;
+import com.pluralsight.yearup.data.OrderDao;
 import com.pluralsight.yearup.models.ShoppingCart;
 import com.pluralsight.yearup.models.User;
 import org.springframework.context.annotation.Profile;

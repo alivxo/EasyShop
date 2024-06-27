@@ -118,4 +118,7 @@ public class Profile
     {
         this.zip = zip;
     }
+
+    public void setId(int anInt) {
+    }
 }

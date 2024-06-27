@@ -7,7 +7,7 @@ public interface ProfileDao
 {
     Profile create(Profile profile);
 
-    org.springframework.context.annotation.Profile getProfileById(int userId);
+    Profile getProfileById(int userId);
 
     int updateProfile(int userId, org.springframework.context.annotation.Profile profile);
 }
