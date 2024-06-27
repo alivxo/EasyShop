@@ -1,5 +1,6 @@
 package com.pluralsight.yearup.models;
 
+import java.lang.annotation.Annotation;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
@@ -164,5 +165,15 @@ public class Category implements List<Product>, jdk.jfr.Category {
     @Override
     public List<Product> subList(int fromIndex, int toIndex) {
         return List.of();
+    }
+
+    @Override
+    public Class<? extends Annotation> annotationType() {
+        return null;
+    }
+
+    @Override
+    public String[] value() {
+        return new String[0];
     }
 }
