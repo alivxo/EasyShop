@@ -1,5 +1,7 @@
 package com.pluralsight.yearup.controllers;
 
+import javax.validation.Valid;
+
 import com.pluralsight.yearup.data.ProfileDao;
 import com.pluralsight.yearup.data.UserDao;
 import com.pluralsight.yearup.models.Profile;
@@ -20,10 +22,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
-import javax.validation.Valid;
-
 @RestController
-@CrossOrigin
+@CrossOrigin (origins = "http://localhost:63342")
 @PreAuthorize("permitAll()")
 public class AuthenticationController {
 

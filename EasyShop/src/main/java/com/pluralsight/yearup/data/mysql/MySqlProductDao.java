@@ -1,9 +1,8 @@
 package com.pluralsight.yearup.data.mysql;
-
 import com.pluralsight.yearup.data.ProductDao;
 import com.pluralsight.yearup.models.Product;
-import com.pluralsight.yearup.models.Profile;
 import org.springframework.stereotype.Component;
+
 
 import javax.sql.DataSource;
 import java.math.BigDecimal;
@@ -13,7 +12,8 @@ import java.util.List;
 
 @Component
 public class MySqlProductDao extends MySqlDaoBase implements ProductDao {
-    public MySqlProductDao(DataSource dataSource) {
+    public MySqlProductDao(DataSource dataSource)
+    {
         super(dataSource);
     }
 
@@ -64,7 +64,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao {
         List<Product> products = new ArrayList<>();
 
         String sql = "SELECT * FROM products " +
-                    " WHERE category_id = ? ";
+                " WHERE category_id = ? ";
 
         try (Connection connection = getConnection())
         {

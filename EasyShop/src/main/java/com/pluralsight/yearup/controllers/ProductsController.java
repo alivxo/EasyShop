@@ -14,7 +14,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("products")
-@CrossOrigin
+@CrossOrigin (origins = "http://localhost:63342")
 public class ProductsController
 {
     private ProductDao productDao;
@@ -31,7 +31,7 @@ public class ProductsController
                                 @RequestParam(name="minPrice", required = false) BigDecimal minPrice,
                                 @RequestParam(name="maxPrice", required = false) BigDecimal maxPrice,
                                 @RequestParam(name="color", required = false) String color
-                                )
+    )
     {
         try
         {

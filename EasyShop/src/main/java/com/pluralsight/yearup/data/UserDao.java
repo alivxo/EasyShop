@@ -2,9 +2,12 @@ package com.pluralsight.yearup.data;
 
 import com.pluralsight.yearup.models.User;
 
+import org.springframework.context.annotation.Primary;
+
 import java.util.List;
 
 public interface UserDao {
+
 
     List<User> getAll();
 
