@@ -11,4 +11,5 @@ public interface ProfileDao
 
     int updateProfile(int userId, org.springframework.context.annotation.Profile profile);
 
+    int updateProfile(int userId, Profile profile);
 }
