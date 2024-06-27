@@ -43,4 +43,6 @@ public class ShoppingCart
         return total;
     }
 
+    public void setUserId(int userId) {
+    }
 }
