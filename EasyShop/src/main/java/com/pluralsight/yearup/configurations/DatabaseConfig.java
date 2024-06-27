@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
 
 import javax.sql.DataSource;
 
@@ -41,7 +42,12 @@ public class DatabaseConfig {
 
     @Bean
     public ProfileDao profileDao (DataSource dataSource) {
-        return new MySqlProfileDao(dataSource);
+        return new MySqlProfileDao(dataSource) {
+            @Override
+            public int updateProfile(int userId, Profile profile) {
+                return 0;
+            }
+        };
     }
 
     @Bean

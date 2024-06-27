@@ -8,7 +8,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 
 @Component
-public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao {
+public abstract class MySqlProfileDao extends MySqlDaoBase implements ProfileDao {
 
     public MySqlProfileDao(DataSource dataSource) {
         super(dataSource);
@@ -64,10 +64,6 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao {
         }
     }
 
-    @Override
-    public int updateProfile(int userId, org.springframework.context.annotation.Profile profile) {
-        return 0;
-    }
 
 
     @Override

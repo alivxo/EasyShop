@@ -13,16 +13,9 @@ import java.util.List;
 
 @Component
 public class MySqlProductDao extends MySqlDaoBase implements ProductDao {
-    public MySqlProductDao(DataSource dataSource)
-    {
+    public MySqlProductDao(DataSource dataSource) {
         super(dataSource);
     }
-
-    @Override
-    public int updateProfile(int userId, Profile profile) {
-        return 0;
-    }
-
 
     @Override
     public List<Product> search(Integer categoryId, BigDecimal minPrice, BigDecimal maxPrice, String color)

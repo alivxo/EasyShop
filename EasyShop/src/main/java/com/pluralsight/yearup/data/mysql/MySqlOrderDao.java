@@ -18,13 +18,9 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
         super(dataSource);
     }
 
-    @Override
-    public int updateProfile(int userId, Profile profile) {
-        return 0;
-    }
 
     @Override
-    public void create(int userId, Profile profile, ShoppingCart shoppingCart) {
+    public void create(int userId, org.springframework.context.annotation.Profile profile, ShoppingCart shoppingCart) {
         String orderInsertSql = "INSERT INTO orders (user_id, date, address, city, state, zip, shipping_amount) VALUES (?, ?, ?, ?, ?, ?, ?)";
         String orderItemLineInsertSql = "INSERT INTO order_line_items (order_id, product_id, sales_price, quantity, discount) VALUES (?, ?, ?, ?, ?)";
         Date date = Date.valueOf(LocalDate.now());
@@ -32,7 +28,7 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
         try (Connection connection = getConnection()) {
             connection.setAutoCommit(false);
 
-            int orderId = insertOrder(connection, userId, profile, date, orderInsertSql);
+            int orderId = insertOrder(connection, userId, (Profile) profile, date, orderInsertSql);
             insertOrderLineItems(connection, orderId, shoppingCart, orderItemLineInsertSql);
 
             connection.commit();
@@ -77,11 +73,6 @@ public class MySqlOrderDao extends MySqlDaoBase implements OrderDao {
             }
             orderItemLinePs.executeBatch();
         }
-    }
-
-    @Override
-    public void create(int userId, org.springframework.context.annotation.Profile profile, ShoppingCart shoppingCart) {
-
     }
 }
 

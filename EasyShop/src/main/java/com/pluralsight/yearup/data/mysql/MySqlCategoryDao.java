@@ -18,15 +18,6 @@ public class MySqlCategoryDao extends MySqlDaoBase implements CategoryDao {
         super(dataSource);
     }
 
-    @Override
-    public int updateProfile(int userId, Profile profile) {
-        return 0;
-    }
-
-    @Override
-    public void create(int userId, Profile profile, ShoppingCart shoppingCart) {
-
-    }
 
     @Override
     public List<Category> getAllCategories() {
