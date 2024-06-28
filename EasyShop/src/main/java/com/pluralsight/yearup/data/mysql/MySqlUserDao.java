@@ -155,4 +155,5 @@ public class MySqlUserDao extends MySqlDaoBase implements UserDao
 
         return new User(userId, username,hashedPassword, role);
     }
+
 }
