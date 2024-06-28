@@ -7,6 +7,8 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 import java.sql.*;
 
+import static com.pluralsight.yearup.data.mysql.MySqlProductDao.mapRow;
+
 @Component
 public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
 {
@@ -46,12 +48,21 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
 
     @Override
     public Profile getProfileById(int userId) {
-        return null;
-    }
+        String query = "SELECT * FROM profiles WHERE user_id = ?";
 
-    @Override
-    public int updateProfile(int userId, org.springframework.context.annotation.Profile profile) {
-        return 0;
+        try (Connection connection = getConnection()) {
+            PreparedStatement ps = connection.prepareStatement(query);
+            ps.setInt(1, userId);
+
+            ResultSet resultSet = ps.executeQuery();
+
+            if (resultSet.next()) {
+                return mapRow(resultSet);
+            }
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return null;
     }
 
 }

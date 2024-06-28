@@ -2,6 +2,7 @@ package com.pluralsight.yearup.data.mysql;
 
 import com.pluralsight.yearup.data.ProductDao;
 import com.pluralsight.yearup.models.Product;
+import com.pluralsight.yearup.models.Profile;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
@@ -65,7 +66,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         List<Product> products = new ArrayList<>();
 
         String sql = "SELECT * FROM products " +
-                    " WHERE category_id = ? ";
+                " WHERE category_id = ? ";
 
         try (Connection connection = getConnection())
         {
@@ -208,7 +209,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
     }
 
-    protected static Product mapRow(ResultSet row) throws SQLException
+    protected static Profile mapRow(ResultSet row) throws SQLException
     {
         int productId = row.getInt("product_id");
         String name = row.getString("name");

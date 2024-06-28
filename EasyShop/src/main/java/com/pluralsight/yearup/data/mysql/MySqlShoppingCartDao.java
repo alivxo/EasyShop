@@ -80,6 +80,11 @@ public class MySqlShoppingCartDao implements ShoppingCartDao {
     }
 
     @Override
+    public int updateItemInCart(int userId, int product_id) {
+        return 0;
+    }
+
+    @Override
     public void deleteCart(int userId) {
         String query = "DELETE FROM shopping_cart WHERE user_id = ?";
         try (Connection connection = dataSource.getConnection();
@@ -92,8 +97,4 @@ public class MySqlShoppingCartDao implements ShoppingCartDao {
         }
     }
 
-    @Override
-    public void clearCartByUserId(int userId) {
-        deleteCart(userId);
-    }
 }
