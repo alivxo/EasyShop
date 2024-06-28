@@ -1,11 +1,9 @@
 package com.pluralsight.yearup.data.mysql;
 
-
 import com.pluralsight.yearup.data.UserDao;
 import com.pluralsight.yearup.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 
 import javax.sql.DataSource;

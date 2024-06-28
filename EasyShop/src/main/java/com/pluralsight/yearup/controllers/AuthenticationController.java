@@ -2,15 +2,6 @@ package com.pluralsight.yearup.controllers;
 
 import javax.validation.Valid;
 
-import com.pluralsight.yearup.data.ProfileDao;
-import com.pluralsight.yearup.data.UserDao;
-import com.pluralsight.yearup.models.Profile;
-import com.pluralsight.yearup.models.User;
-import com.pluralsight.yearup.models.authentication.LoginDto;
-import com.pluralsight.yearup.models.authentication.LoginResponseDto;
-import com.pluralsight.yearup.models.authentication.RegisterUserDto;
-import com.pluralsight.yearup.security.jwt.JWTFilter;
-import com.pluralsight.yearup.security.jwt.TokenProvider;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,8 +13,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
+import com.pluralsight.yearup.models.Profile;
+import com.pluralsight.yearup.data.ProfileDao;
+import com.pluralsight.yearup.data.UserDao;
+import com.pluralsight.yearup.models.authentication.LoginDto;
+import com.pluralsight.yearup.models.authentication.LoginResponseDto;
+import com.pluralsight.yearup.models.authentication.RegisterUserDto;
+import com.pluralsight.yearup.models.User;
+import com.pluralsight.yearup.security.jwt.JWTFilter;
+import com.pluralsight.yearup.security.jwt.TokenProvider;
 @RestController
-@CrossOrigin (origins = "http://localhost:63342")
+@CrossOrigin (origins = "http://localhost:3306/easyshop")
 @PreAuthorize("permitAll()")
 public class AuthenticationController {
 
@@ -92,6 +92,5 @@ public class AuthenticationController {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
         }
     }
-
 }
 

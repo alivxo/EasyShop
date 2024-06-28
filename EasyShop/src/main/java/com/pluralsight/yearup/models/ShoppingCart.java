@@ -44,6 +44,5 @@ public class ShoppingCart
     }
 
     public void setUserId(int userId) {
-
     }
 }

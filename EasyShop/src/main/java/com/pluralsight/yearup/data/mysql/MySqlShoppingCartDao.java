@@ -4,10 +4,9 @@ import com.pluralsight.yearup.data.ShoppingCartDao;
 import com.pluralsight.yearup.models.ShoppingCart;
 
 import javax.sql.DataSource;
-import com.pluralsight.yearup.models.ShoppingCart;
+
 import com.pluralsight.yearup.models.ShoppingCartItem;
 
-import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;

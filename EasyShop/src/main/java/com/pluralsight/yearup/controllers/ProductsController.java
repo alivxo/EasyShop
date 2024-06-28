@@ -1,23 +1,22 @@
 package com.pluralsight.yearup.controllers;
 
-import com.pluralsight.yearup.data.ProductDao;
-import com.pluralsight.yearup.models.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
-
+import com.pluralsight.yearup.models.Product;
+import com.pluralsight.yearup.data.ProductDao;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @RestController
-@RequestMapping("products")
-@CrossOrigin (origins = "http://localhost:63342")
+@RequestMapping("/products")
+@CrossOrigin
 public class ProductsController
 {
-    private ProductDao productDao;
+    private final ProductDao productDao;
 
     @Autowired
     public ProductsController(ProductDao productDao)
@@ -43,7 +42,7 @@ public class ProductsController
         }
     }
 
-    @GetMapping("{id}")
+    @GetMapping("/{id}")
     @PreAuthorize("permitAll()")
     public Product getById(@PathVariable int id )
     {
@@ -62,7 +61,7 @@ public class ProductsController
         }
     }
 
-    @PostMapping()
+    @PostMapping("")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public Product addProduct(@RequestBody Product product)
     {
@@ -76,13 +75,13 @@ public class ProductsController
         }
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void updateProduct(@PathVariable int id, @RequestBody Product product)
     {
         try
         {
-            productDao.create(product);
+            productDao.update(id, product);
         }
         catch(Exception ex)
         {
@@ -90,7 +89,7 @@ public class ProductsController
         }
     }
 
-    @DeleteMapping("{id}")
+    @DeleteMapping("/{id}")
     @PreAuthorize("hasRole('ROLE_ADMIN')")
     public void deleteProduct(@PathVariable int id)
     {

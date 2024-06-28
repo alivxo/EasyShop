@@ -37,7 +37,7 @@ public class OrdersController {
     public ShoppingCart checkout(Principal principal) {
         try {
             int userId = getCurrentUserId(principal);
-            Profile profile = getProfileByUserId(userId);
+            Profile profile = (Profile) getProfileByUserId(userId);
             ShoppingCart shoppingCart = getShoppingCartByUserId(userId);
 
             processOrder(userId, profile, shoppingCart);

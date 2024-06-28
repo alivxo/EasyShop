@@ -1,8 +1,7 @@
 package com.pluralsight.yearup.models;
 
-import java.lang.annotation.Annotation;
-
-public class Profile implements org.springframework.context.annotation.Profile {
+public class Profile
+{
     private int userId;
     private String firstName = "";
     private String lastName = "";
@@ -118,19 +117,5 @@ public class Profile implements org.springframework.context.annotation.Profile {
     public void setZip(String zip)
     {
         this.zip = zip;
-    }
-
-    public void setId(int anInt) {
-
-    }
-
-    @Override
-    public String[] value() {
-        return new String[0];
-    }
-
-    @Override
-    public Class<? extends Annotation> annotationType() {
-        return null;
     }
 }
