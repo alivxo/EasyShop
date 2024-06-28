@@ -57,12 +57,17 @@ public class MySqlProfileDao extends MySqlDaoBase implements ProfileDao
             ResultSet resultSet = ps.executeQuery();
 
             if (resultSet.next()) {
-                return mapRow(resultSet);
+                return (Profile) mapRow(resultSet);
             }
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    @Override
+    public int updateProfile(int userId, org.springframework.context.annotation.Profile profile) {
+        return 0;
     }
 
 }

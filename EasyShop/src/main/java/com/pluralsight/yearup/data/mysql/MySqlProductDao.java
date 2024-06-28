@@ -48,7 +48,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
 
             while (row.next())
             {
-                Product product = mapRow(row);
+                Profile product = (Profile) mapRow(row);
                 products.add(product);
             }
         }
@@ -209,7 +209,7 @@ public class MySqlProductDao extends MySqlDaoBase implements ProductDao
         }
     }
 
-    protected static Profile mapRow(ResultSet row) throws SQLException
+    protected static Product mapRow(ResultSet row) throws SQLException
     {
         int productId = row.getInt("product_id");
         String name = row.getString("name");

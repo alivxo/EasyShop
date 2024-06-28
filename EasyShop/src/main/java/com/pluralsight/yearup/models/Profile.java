@@ -1,7 +1,6 @@
 package com.pluralsight.yearup.models;
 
-public class Profile
-{
+public class Profile extends Product {
     private int userId;
     private String firstName = "";
     private String lastName = "";

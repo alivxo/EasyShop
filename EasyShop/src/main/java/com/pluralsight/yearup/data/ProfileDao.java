@@ -9,4 +9,5 @@ public interface ProfileDao
 
     Profile getProfileById(int userId);
 
+    int updateProfile(int userId, org.springframework.context.annotation.Profile profile);
 }
